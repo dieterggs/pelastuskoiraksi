@@ -1,75 +1,302 @@
+/* Perusasetukset */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-    text-align: center;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.home-links {
+    font-family: 'Marcellus', serif;
+    background-color: #e5d1bd;
+    background: linear-gradient(to bottom, #e5d1bd, #d4b08b);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center;
+    min-height: 100vh;
+    justify-content: space-between; /* Jakaa headerin, mainin ja footerin */
+    min-height: 100vh; /* Varmistaa, että sivu täyttää koko ruudun */
 }
 
-.home-links a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: #2c3e50;
-    background-color: #eaeaea;
-    padding: 10px 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-    width: 200px;
-    text-align: center;
-}
-
-.home-links a:hover {
-    background-color: #d5d5d5;
+/* Header ja Footer */
+header, footer {
+    width: 100%;
+    height: 85px; /* Voit muuttaa korkeutta tarvittaessa */
+    display: flex; 
+    justify-content: center;
 }
 
 header {
-    background-color: #2c3e50;
-    padding: 15px 0;
-    text-align: center;
+    width: 100%;
+    height: 85px;
+    background-color: #e5d1bd;
+    display: flex;
 }
 
-nav ul {
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Jakaa osiot tasaisesti */
+    align-items: center;
+    width: 80%; /* Rajoittaa leveyttä */
+    max-width: 700px; /* Estää liian suuren leviämisen */
+}
+
+.header-nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 70px;
+    margin-top: 25px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.header-nav a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tagline {
+    font-size: 20px;
+    
+}
+
+/* 🔹 Pienillä näytöillä näytetään vain hampurilaismenu ja logo */
+.mobile-header {
+    display: none; /* Oletuksena piilotettu, näkyy vain pienillä näytöillä */
+}
+
+@media (max-width: 1000px) {
+    /* PIENILLÄ NÄYTÖILLÄ: Piilotetaan iso navigaatio ja näytetään mobile-header */
+    .header-nav {
+        display: none;
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        padding: 10px 20px;
+    }
+
+    .menu-toggle {
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .logo {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    /* Hampurilaisvalikko (pienille näytöille) */
+    .mobile-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #e5d1bd;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Asetetaan korkeammaksi kuin muut elementit */
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .mobile-menu a {
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+    }
+
+    .mobile-menu a:hover {
+        background-color: #d4b08b;
+    }
+}
+
+footer {
+    
+    align-items: center;
+    bottom: 0;
+    text-align: center;
+    font-size: 14px;
+    background-color: #d4b08b;
+}
+
+/* Keskiosio */
+main {
+    background-color: #d4b08b;
+    text-align: center;
+    margin: 0px 0;
+    flex-grow: 1; /* Työntää mainin keskelle */
+    max-width: 700px; /* Rajoittaa sisällön leveyden */
+    width: 90%; /* Jotta se skaalautuu myös pienillä näytöillä */
+}
+
+/* Kuva */
+main img {
+    width: 350px; /* Voit muuttaa kuvan kokoa */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Etusivun navigaatio (pystysuunnassa) */
+.frontpage-nav {
+    display: flex;
+    flex-direction: column; /* Säilytetään pystysuuntainen asettelu */
+    gap: 20px;
+    margin-top: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 24px;
+    color: black;
+    font-weight: normal;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #5a3d2b;
+    
+}
+
+/* About-sisällön tyyli */
+.about-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.about-content h1 {
+    font-size: 24px;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* 🌟 Palvelut-sisältö */
+.services-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.services-content h1 {
+    font-size: 24px;
+}
+
+.services-content h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.services-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.services-content ul {
     list-style-type: none;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.services-content li {
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0e0cc;
+    border-radius: 5px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
+/* 🌟 Yhteystietosivu */
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 30px auto;
     padding: 20px;
 }
 
-footer {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+.contact-content h1 {
+    font-size: 24px;
 }
 
+.contact-content h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.contact-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.contact-content a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.contact-content a:hover {
+    text-decoration: underline;
+    color: #5a3d2b;
+}
+
+
+/* Hampurilaismenu, joka avautuu painamalla */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #e5d1bd;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.mobile-menu a:hover {
+    background-color: #d4b08b;
+}

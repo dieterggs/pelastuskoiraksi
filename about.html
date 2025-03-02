@@ -3,31 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelastuskoiraksi - Tietoja minusta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="about.html">Tietoja minusta</a></li>
-                <li><a href="services.html">Palvelut</a></li>
-                <li><a href="contact.html">Ota yhteyttä</a></li>
-            </ul>
+        <!-- Hampurilaismenu pienille näytöille -->
+        <div class="mobile-header">
+            <button class="menu-toggle">&#9776;</button>
+            <span class="logo">pelastuskoiraksi.fi</span>
+        </div>
+
+        <!-- Navigaatio (vain isoille näytöille) -->
+        <nav class="header-nav">
+            <a href="index.html">Etusivu</a>
+            <a href="about.html">Tietoa minusta</a>
+            <a href="services.html">Palvelut</a>
+            <a href="contact.html">Ota yhteyttä</a>
         </nav>
+
+        <!-- Hampurilaisvalikon sisältö (vain mobiilissa) -->
+        <div class="mobile-menu">
+            <a href="index.html">Etusivu</a>
+            <a href="about.html">Tietoa minusta</a>
+            <a href="services.html">Palvelut</a>
+            <a href="contact.html">Ota yhteyttä</a>
+        </div>
     </header>
 
     <main>
-        <h1>Tietoja minusta</h1>
-        <p>Tähän tulee esittely</p>
+        <img src="RikuRönni.JPEG" alt="Kuva minusta">
+        <section class="about-content">
+            <p>
+                Olen Riku Rönni, pelastuskoiratoiminnan kouluttaja ja aktiivinen harrastaja.
+                Minulla on vuosien kokemus pelastuskoirien kouluttamisesta ja etsintätehtävistä.
+                Tavoitteeni on jakaa osaamistani ja auttaa muita kehittämään koiriensa
+                taitoja etsintä- ja pelastustehtävissä.
+            </p>
+            <p>
+                Olen Riku Rönni, pelastuskoiratoiminnan kouluttaja ja aktiivinen harrastaja.
+                Minulla on vuosien kokemus pelastuskoirien kouluttamisesta ja etsintätehtävistä.
+                Tavoitteeni on jakaa osaamistani ja auttaa muita kehittämään koiriensa
+                taitoja etsintä- ja pelastustehtävissä.
+            </p>
+            <p>
+                Olen Riku Rönni, pelastuskoiratoiminnan kouluttaja ja aktiivinen harrastaja.
+                Minulla on vuosien kokemus pelastuskoirien kouluttamisesta ja etsintätehtävistä.
+                Tavoitteeni on jakaa osaamistani ja auttaa muita kehittämään koiriensa
+                taitoja etsintä- ja pelastustehtävissä.
+            </p>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Pelastuskoiraksi</p>
-    </footer>
+    <footer>© 2025</footer>
+
+    <script>
+        // Hampurilaisvalikon toiminnallisuus
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
-
